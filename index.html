@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle.Com - Secure Communication for the Modern World</title>
+    <!-- Consistent global font and icon library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to the main style file -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Specific styles for index.html sections not covered in style.css */
+        
+        /* Hero Section */
+        #home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+            /* Placeholder for a main background image (main.png) */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/121212/007BFF?text=Secure+Data') no-repeat center center/cover; 
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .site-header {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .cta-link {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            color: var(--text-primary);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .hero-cta {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .hero-cta:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.6);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 50px;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+        
+        /* Features Overview Section */
+        #features-overview {
+            background-color: var(--primary-dark);
+        }
+        
+        .features-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background-color: var(--secondary-dark);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            border-left: 5px solid var(--primary-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+        }
+        
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        
+        .feature-item p {
+            color: var(--text-secondary);
+        }
+        
+        /* About Section */
+        #about-overview {
+            background-color: var(--background-dark);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color-dark);
+            background-color: var(--primary-dark);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .about-content a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .about-content a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary-dark);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--primary-dark);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color-dark);
+            border-radius: 6px;
+            background-color: var(--secondary-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--accent-gold);
+            color: #121212;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #FFC700;
+            transform: translateY(-2px);
+        }
+
+        /* Cookie Modal Styles (Copied from existing index.html structure) */
+        .cookie-modal-backdrop {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .cookie-modal-backdrop.show {
+            display: flex;
+        }
+
+        .cookie-popup {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            text-align: center;
+            border: 2px solid var(--primary-blue);
+            animation: slide-up 0.5s ease-out;
+        }
+
+        @keyframes slide-up {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cookie-popup h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .cookie-popup a {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cookie-popup-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .accept-btn {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+        }
+
+        .accept-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .decline-btn {
+            background-color: var(--primary-dark);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .decline-btn:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+         @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+                padding: 1rem 20px;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: var(--primary-dark);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                display: flex;
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">Circle.Com</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="premium.html" class="nav-link cta-link active">Premium</a></li>
+                    <li><a href="sign-in.html" class="nav-link cta-link active">Sign In</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Conversations. Secured.</h1>
+                    <p>Experience true digital privacy with Circle.Com. End-to-end encryption, ephemeral messaging, and zero data logging—built for a world that demands security.</p>
+                    <a href="sign-in.html" class="hero-cta">Start Free Trial Today</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Overview Section (Teaser) -->
+        <section id="features-overview" class="section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Circle.Com?</h2>
+                <div class="features-summary-grid">
+                    
+                    <!-- Feature Teaser 1 -->
+                    <div class="feature-item">
+                        <i class="fas fa-user-lock"></i>
+                        <h3>Absolute E2E Security</h3>
+                        <p>We use the highest standards of encryption to ensure your data is unreadable by anyone but you and your recipient. Privacy isn't optional, it's foundational.</p>
+                    </div>
+
+                    <!-- Feature Teaser 2 -->
+                    <div class="feature-item">
+                        <i class="fas fa-ghost"></i>
+                        <h3>Anonymous Messaging</h3>
+                        <p>Control who sees your presence. Go fully anonymous, disable read receipts, and enjoy communication without constant digital surveillance.</p>
+                    </div>
+
+                    <!-- Feature Teaser 3 -->
+                    <div class="feature-item">
+                        <i class="fas fa-bomb"></i>
+                        <h3>Timed Self-Destruction</h3>
+                        <p>Ensure sensitive information vanishes forever. Set messages to automatically disappear moments after they are viewed, leaving no trace.</p>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="features.html" class="hero-cta">Explore All Features</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Overview Section (Teaser) -->
+        <section id="about-overview" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Mission: Trust and Transparency</h2>
+                <div class="about-content">
+                    <p>Circle.Com was founded on the principle that digital communication should be safe, private, and free from corporate exploitation. We believe your data is exclusively yours. Our open-source commitment and zero-log policy reflect our dedication to transparency and user trust.</p>
+                    <p>We are a small, dedicated team of security experts and privacy advocates working to make the digital world safer for everyone.</p>
+                    <a href="about.html" class="text-lg font-semibold">Read Our Full Story <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <form class="contact-form" onsubmit="event.preventDefault(); showContactMessage();">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Secure Message</button>
+                    <p id="contact-status" class="mt-4 text-center text-sm" style="color: var(--accent-gold); display: none;">Your message has been securely sent!</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cookie Consent Pop-up (Modal) -->
+    <div id="cookie-modal-backdrop" class="cookie-modal-backdrop">
+        <div id="cookie-popup" class="cookie-popup">
+            <i class="fas fa-cookie-bite" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+            <h3>We Value Your Privacy</h3>
+            <p>This website uses cookies to enhance your browsing experience. By continuing, you consent to our use of cookies in accordance with our <a href="privacy_policy.html">privacy policy</a>.</p>
+            <div class="btn-group">
+                <button id="accept-cookies-btn" class="cookie-popup-btn accept-btn">Accept All</button>
+                <button id="decline-cookies-btn" class="cookie-popup-btn decline-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Circle.Com. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy_policy.html" class="hover:text-white transition duration-300">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Inline JS for interactivity (Hamburger, Smooth Scroll, Contact Form, Cookies) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-links');
+            const cookieModalBackdrop = document.getElementById('cookie-modal-backdrop');
+            const acceptBtn = document.getElementById('accept-cookies-btn');
+            const declineBtn = document.getElementById('decline-cookies-btn');
+
+            // 1. Hamburger Menu Toggle
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active'); 
+            });
+            
+            // 2. Smooth Scrolling for internal anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                    
+                    // Scroll to the target section
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+
+            // 3. Contact Form Submission Handler
+            function showContactMessage() {
+                const status = document.getElementById('contact-status');
+                
+                // Clear and show processing message
+                status.style.display = 'block';
+                status.textContent = 'Sending...';
+
+                // Simulate network delay and success
+                setTimeout(() => {
+                    status.textContent = 'Message sent! We will respond shortly.';
+                    // Clear the form fields
+                    document.getElementById('name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('message').value = '';
+                }, 1500);
+            }
+            window.showContactMessage = showContactMessage; // Make function accessible from inline HTML onsubmit
+            
+            
+            // 4. Cookie Pop-up Logic
+            
+            function showCookieModal() {
+                // Check if user has neither accepted nor declined
+                if (!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')) {
+                    cookieModalBackdrop.classList.add('show');
+                    cookieModalBackdrop.style.display = 'flex';
+                }
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                cookieModalBackdrop.classList.remove('show');
+                cookieModalBackdrop.style.display = 'none';
+                localStorage.setItem('cookiesAccepted', 'true');
+                localStorage.removeItem('cookiesDeclined');
+            });
+
+            declineBtn.addEventListener('click', () => {
+                cookieModalBackdrop.classList.remove('show');
+                cookieModalBackdrop.style.display = 'none';
+                localStorage.setItem('cookiesDeclined', 'true');
+                localStorage.removeItem('cookiesAccepted');
+            });
+            
+            // Show the modal after a slight delay
+            setTimeout(showCookieModal, 500);
+        });
+    </script>
+</body>
+</html>

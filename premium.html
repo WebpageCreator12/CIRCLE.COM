@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Premium - Circle.Com: Ultimate Security & Features</title>
+    <!-- Consistent global font and icon library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inline CSS using the established variables for a consistent look -->
+    <style>
+        /* --- CSS Variables & Global Styles --- */
+        :root {
+            --primary-blue: #007BFF;
+            --accent-gold: #FFD700;
+            --background-dark: #121212;
+            --primary-dark: #1E1E1E;
+            --secondary-dark: #2a2a2a;
+            --text-primary: #E4E6EB;
+            --text-secondary: #b0b3b8;
+            --border-color-dark: #3A3B3C;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --hover-effect: 0.3s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background-color: var(--background-dark);
+            /* Subtle background animation */
+            background: linear-gradient(135deg, #1e1e1e, #141414, #1e1e1e);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        .site-header {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .cta-link {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+        
+        /* --- Premium Page Specific Styles --- */
+        .premium-hero {
+            padding: 80px 0 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--background-dark));
+            border-bottom: 1px solid var(--border-color-dark);
+        }
+
+        .premium-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        .premium-hero h1 span {
+            color: var(--primary-blue);
+        }
+
+        .premium-hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .promo-banner {
+            background-color: rgba(0, 123, 255, 0.1);
+            border: 1px solid var(--primary-blue);
+            padding: 15px;
+            display: inline-block;
+            border-radius: 8px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Pricing Grid */
+        .pricing-section {
+            padding: 80px 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .price-card {
+            background-color: var(--primary-dark);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, border 0.4s ease;
+            text-align: center;
+            border: 1px solid var(--border-color-dark);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-blue);
+        }
+
+        .price-card.featured {
+            background: linear-gradient(to bottom right, #2a2a2a, #1E1E1E);
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+        }
+        
+        .price-card.featured .plan-title {
+            color: var(--accent-gold);
+        }
+
+        .plan-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+        
+        .plan-price sub {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            vertical-align: middle;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0 30px;
+            flex-grow: 1; /* Pushes button to bottom */
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .subscribe-btn {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s;
+            display: block;
+            margin-top: auto; /* Ensures button is at the bottom */
+            cursor: pointer;
+            border: none;
+        }
+
+        .subscribe-btn.featured-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .subscribe-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .subscribe-btn.featured-btn:hover {
+            background-color: #e6c200;
+        }
+
+        /* Features Comparison Section */
+        .comparison-section {
+            padding: 60px 0;
+            background-color: var(--secondary-dark);
+        }
+        
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .comparison-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--border-color-dark);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--primary-dark);
+        }
+        
+        .comparison-table tr:nth-child(odd) {
+            background-color: var(--background-dark);
+        }
+        
+        .feature-name {
+            text-align: left !important;
+            font-weight: 600;
+            color: var(--accent-gold);
+            width: 30%;
+        }
+
+        .check-icon {
+            color: #28a745; /* Green checkmark */
+            font-size: 1.2rem;
+        }
+        
+        .x-icon {
+            color: #dc3545; /* Red X */
+            font-size: 1.2rem;
+        }
+        
+        /* Modal (Alert replacement) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: var(--primary-dark);
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 30px;
+            border: 1px solid var(--primary-blue);
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 450px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 123, 255, 0.3);
+            position: relative;
+        }
+
+        .close-btn {
+            color: var(--text-secondary);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover, .close-btn:focus {
+            color: var(--primary-blue);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal-content h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .modal-content label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color-dark);
+            background-color: var(--secondary-dark);
+            color: var(--text-primary);
+            border-radius: 6px;
+        }
+
+        #modal-message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        /* Footer (Consistent) */
+        .site-footer {
+            background: var(--primary-dark);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color-dark);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+                padding: 1rem 20px;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: var(--primary-dark);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                display: flex;
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .price-card {
+                padding: 30px 20px;
+            }
+
+            .comparison-table th, .comparison-table td {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation (Consistent across pages) -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">Circle.Com</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="premium.html" class="nav-link cta-link active">Premium</a></li>
+                    <li><a href="sign-in.html" class="nav-link cta-link active">Sign In</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Premium Hero Section -->
+        <section class="premium-hero">
+            <div class="container">
+                <div class="promo-banner">
+                    <i class="fas fa-bolt"></i> Elevate Your Security. Unlock <span>Circle.Com Premium</span>.
+                </div>
+                <h1>Take Control with <span>Ultimate Protection</span>.</h1>
+                <p>The standard plan is powerful, but Premium delivers **unlimited capacity, advanced threat defense, and dedicated support** for the most demanding users.</p>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="container">
+                <div class="pricing-grid">
+                    
+                    <!-- Card 1: Pro Plan -->
+                    <div class="price-card">
+                        <p class="plan-title">Pro</p>
+                        <p class="plan-description">Essential power for serious users and small teams.</p>
+                        <p class="plan-price">Rs 399<sub>/mo</sub></p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Unlimited HD Voice/Video Calls</li>
+                            <li><i class="fas fa-check"></i> 500 GB Secure Cloud Storage</li>
+                            <li><i class="fas fa-check"></i> Advanced Phishing Protection</li>
+                            <li><i class="fas fa-check"></i> File Transfer up to 5 GB</li>
+                            <li><i class="fas fa-check"></i> Standard Priority Support</li>
+                        </ul>
+                        <button class="subscribe-btn" data-plan="Pro Plan" data-price="399">Start Pro</button>
+                    </div>
+
+                    <!-- Card 2: Business Plan (Featured) -->
+                    <div class="price-card featured">
+                        <p class="plan-title">Business</p>
+                        <p class="plan-description">The gold standard for enterprises and high-volume data needs.</p>
+                        <p class="plan-price">Rs 899<sub>/mo</sub></p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> All Pro features, plus:</li>
+                            <li><i class="fas fa-check"></i> **Unlimited** Secure Cloud Storage</li>
+                            <li><i class="fas fa-check"></i> Custom Domain Integration</li>
+                            <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                            <li><i class="fas fa-check"></i> Priority **24/7** Live Support</li>
+                        </ul>
+                        <button class="subscribe-btn featured-btn" data-plan="Business Plan" data-price="899">Select Business</button>
+                    </div>
+
+                    <!-- Card 3: Enterprise Plan -->
+                    <div class="price-card">
+                        <p class="plan-title">Enterprise</p>
+                        <p class="plan-description">Tailored solutions for large-scale deployments and bespoke needs.</p>
+                        <p class="plan-price">Rs 1,499<sub>/mo</sub></p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> All Business features, plus:</li>
+                            <li><i class="fas fa-check"></i> Custom API Integrations</li>
+                            <li><i class="fas fa-check"></i> On-Premise Deployment Options</li>
+                            <li><i class="fas fa-check"></i> Dedicated Private Server Region</li>
+                            <li><i class="fas fa-check"></i> SLA and Uptime Guarantee</li>
+                        </ul>
+                        <button class="subscribe-btn" data-plan="Enterprise Plan" data-price="1499">Start Enterprise</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Feature Comparison Table -->
+        <section class="comparison-section">
+            <div class="container">
+                <div class="comparison-header">
+                    <h2>Detailed Feature Comparison</h2>
+                    <p>See exactly what you gain by upgrading your protection.</p>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="feature-name" style="text-align: left;">Feature</th>
+                                <th>Free Tier</th>
+                                <th>Pro (Rs399)</th>
+                                <th>Business (Rs899)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature-name">End-to-End Encryption (E2EE)</td>
+                                <td><i class="fas fa-check check-icon"></i></td>
+                                <td><i class="fas fa-check check-icon"></i></td>
+                                <td><i class="fas fa-check check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Cloud Storage Capacity</td>
+                                <td>5 GB</td>
+                                <td>500 GB</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Maximum File Transfer Size</td>
+                                <td>50 MB</td>
+                                <td>5 GB</td>
+                                <td>10 GB</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Custom Domain Integration</td>
+                                <td><i class="fas fa-times x-icon"></i></td>
+                                <td><i class="fas fa-times x-icon"></i></td>
+                                <td><i class="fas fa-check check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Advanced Threat Defense (ATD)</td>
+                                <td>Basic</td>
+                                <td>Advanced</td>
+                                <td>Ultimate (AI-driven)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Group Video Call Limit</td>
+                                <td>4 Participants</td>
+                                <td>100 Participants</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Customer Support Level</td>
+                                <td>Community Forum</td>
+                                <td>Standard Priority</td>
+                                <td>24/7 Live Dedicated</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Subscription Modal (Replaces 'alert') -->
+    <div id="subscription-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">Subscription</h3>
+            <p id="modal-price" style="color: var(--primary-blue); font-weight: 600;"></p>
+            
+            <form id="subscription-form">
+                <label for="name-input">Full Name</label>
+                <input type="text" id="name-input" required placeholder="John Doe">
+
+                <label for="email-input">Email Address</label>
+                <input type="email" id="email-input" required placeholder="john.doe@email.com">
+
+                <label for="card-input">Credit Card Number</label>
+                <input type="text" id="card-input" required pattern="\d{16}" title="16 digits" placeholder="XXXX XXXX XXXX XXXX">
+                
+                <button type="submit" class="subscribe-btn" style="width: 100%;">Confirm Subscription</button>
+            </form>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Circle.Com. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy_policy.html" class="nav-link" style="margin-right: 10px;">Privacy Policy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Inline JS for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navigation Logic ---
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Set 'Premium' link as active
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes('premium.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+
+            // --- Modal and Subscription Simulation Logic ---
+            const modal = document.getElementById('subscription-modal');
+            const subscribeBtns = document.querySelectorAll('.subscribe-btn');
+            const closeBtn = document.querySelector('.close-btn');
+            const modalTitle = document.getElementById('modal-title');
+            const modalPrice = document.getElementById('modal-price');
+            const modalMessage = document.getElementById('modal-message');
+            const subscriptionForm = document.getElementById('subscription-form');
+            
+            // Open modal when a subscribe button is clicked
+            subscribeBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const planName = btn.getAttribute('data-plan');
+                    const planPrice = btn.getAttribute('data-price');
+                    
+                    if (planName) {
+                        modalTitle.textContent = `${planName} Subscription`;
+                        modalPrice.textContent = `Price: Rs ${planPrice}/month`;
+                        modalMessage.textContent = ''; // Clear previous message
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            // Close modal when X is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+                modalMessage.textContent = '';
+                subscriptionForm.reset();
+            });
+
+            // Close modal when user clicks outside the modal content
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    modalMessage.textContent = '';
+                    subscriptionForm.reset();
+                }
+            });
+
+            // Handle form submission (simulation)
+            subscriptionForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modalMessage.textContent = 'Processing secure transaction...';
+                modalMessage.style.color = 'yellow';
+                
+                // Simulate a network request delay
+                setTimeout(() => {
+                    // Check if the form is still visible before updating
+                    if (modal.style.display !== 'none') {
+                        modalMessage.textContent = 'Subscription successful! Welcome to Circle.Com Premium.';
+                        modalMessage.style.color = 'var(--accent-gold)';
+                        subscriptionForm.reset();
+                        // Optionally hide the form elements and show a success icon
+                        // subscriptionForm.style.display = 'none'; 
+                    }
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

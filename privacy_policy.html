@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Circle.Com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Linking to the global style.css for consistent design -->
+    <link rel="stylesheet" href="css/style.css"> 
+    <style>
+        /* Specific Styles for the Policy Page Layout */
+        .policy-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--primary-dark);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-color-dark);
+        }
+
+        .policy-container h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 10px;
+        }
+
+        .policy-container h2 {
+            color: var(--accent-gold);
+            font-size: 1.75rem;
+            margin-top: 35px; /* Increased margin for better separation */
+            margin-bottom: 15px;
+            display: flex; /* For icon alignment */
+            align-items: center;
+        }
+        
+        .policy-icon {
+            color: var(--primary-blue); /* Use the primary color for the icon */
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .policy-container p, .policy-container li {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .policy-container ul {
+            list-style: none; /* Remove default disc */
+            margin-left: 0;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+        
+        /* Custom list styling with hover effect for clarity */
+        .policy-container li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            border-left: 3px solid transparent;
+            transition: border-left 0.3s ease, color 0.3s ease;
+        }
+
+        .policy-container li::before {
+            content: "\2022"; /* Unicode bullet point */
+            color: var(--primary-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .policy-container li:hover {
+            border-left: 3px solid var(--accent-gold);
+            color: var(--text-primary);
+        }
+        
+        /* Highlight for E2EE content */
+        .e2ee-highlight {
+            font-weight: 600;
+            color: var(--accent-gold);
+            background-color: rgba(0, 123, 255, 0.1);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .return-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+        }
+
+        .return-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation (Consistent across pages) -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">Circle.Com</a>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="premium.html" class="nav-link cta-link">Premium</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-section" style="padding: 40px 0;">
+        <div class="policy-container">
+            
+            <h1>Privacy Policy</h1>
+            <p style="color: var(--text-primary); font-weight: 600;">**Effective Date:** September 27, 2024</p>
+            <p>Welcome to Circle.Com. Your privacy is our absolute priority. This policy explains what information we collect, how we use it, and the minimal extent to which we may share it. As an <span class="e2ee-highlight">end-to-end encrypted</span> service, we are fundamentally designed to know as little about your communications as possible.</p>
+
+            <!-- 1. Information We Collect -->
+            <h2><i class="fas fa-circle-info policy-icon"></i> 1. Information We Collect (Minimalism by Design)</h2>
+            <p>Because Circle.Com utilizes **End-to-End Encryption (E2EE)** for messages and calls, the content of your communications is always encrypted and inaccessible to us. We only collect essential information required to operate and maintain our service:</p>
+            
+            <ul>
+                <li>**Account Information:** When you register, we collect your phone number or unique username (for service identification), and encrypted credentials. We do not require your real name or email address for standard use.</li>
+                <li>**Connection Metadata:** To route messages, our servers temporarily process metadata such as the date and time a message was sent, and the approximate IP address used to connect. Message content, sender, and recipient are always **encrypted** and hidden from us.</li>
+                <li>**Usage Data (Non-Identifying):** We collect high-level, anonymized data about service performance, such as crash reports and general feature usage, to improve reliability. This data cannot be linked back to you personally.</li>
+                <li>**Payment Information (Premium Users):** If you subscribe to Circle.Com Premium, payment processing is handled by third-party providers (e.g., Stripe or PayPal). We do not store your full credit card details.</li>
+            </ul>
+
+            <!-- 2. How We Use Information -->
+            <h2><i class="fas fa-chart-line policy-icon"></i> 2. How We Use Your Information</h2>
+            <p>We use the limited information we collect exclusively to:</p>
+            <ul>
+                <li>**Provide and Maintain Service:** To enable messaging, voice calls, and file transfers, and ensure continuous service operation.</li>
+                <li>**Security:** To prevent spam, fraud, and abuse, and to enhance the safety of our platform.</li>
+                <li>**Improve Service:** To understand performance bottlenecks and implement new features (based on anonymized data).</li>
+                <li>**Customer Support:** To respond to your direct inquiries and technical support requests.</li>
+            </ul>
+
+            <!-- 3. Information Sharing and Disclosure -->
+            <h2><i class="fas fa-handshake policy-icon"></i> 3. Information Sharing and Disclosure</h2>
+            <p>We do not sell, rent, or lease your personal information to third parties. Sharing only occurs under the following, very limited circumstances:</p>
+            <ul>
+                <li>**Service Providers:** We may share necessary information (like anonymous payment tokens or usage statistics) with third-party vendors who perform services on our behalf (e.g., cloud hosting, payment processing). These vendors are legally required to protect your information and prohibited from using it for other purposes.</li>
+                <li>**Legal Compliance:** We will disclose information where required to do so by law or subpoena, or if we reasonably believe that such action is necessary to comply with the law and protect the safety of our users or the public. **However, due to E2EE, we cannot provide the content of your communications.**</li>
+            </ul>
+
+            <!-- 4. Data Security -->
+            <h2><i class="fas fa-shield-halved policy-icon"></i> 4. Data Security and E2EE</h2>
+            <p>We implement robust physical, technical, and organizational security measures to protect the information we hold against loss, misuse, and unauthorized access.</p>
+            <p>Our core commitment is <span class="e2ee-highlight">End-to-End Encryption</span>, which means:</p>
+            <ul>
+                <li>Only you and the person you're communicating with can read or listen to your messages and calls.</li>
+                <li>The decryption keys are stored locally on your device, not on our servers.</li>
+                <li>If our servers were ever compromised, your communication content would remain secure and unintelligible to the attacker.</li>
+            </ul>
+
+            <!-- 5. Your Choices and Rights -->
+            <h2><i class="fas fa-user-check policy-icon"></i> 5. Your Choices and Rights</h2>
+            <ul>
+                <li>**Account Deletion:** You can delete your Circle.Com account at any time through the app settings. This process immediately deletes your account information and associated server logs.</li>
+                <li>**Cookies:** We use functional cookies essential for site operation (e.g., remembering your cookie preference). You can manage non-essential cookies via the cookie consent pop-up.</li>
+            </ul>
+            
+            <!-- 6. Children's Privacy -->
+            <h2><i class="fas fa-child policy-icon"></i> 6. Children's Privacy</h2>
+            <p>Circle.Com is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such information immediately.</p>
+            
+            <!-- 7. Changes and Contact -->
+            <h2><i class="fas fa-calendar-alt policy-icon"></i> 7. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page and updating the "Effective Date" at the top. We encourage you to review this policy periodically.</p>
+            
+            <h2><i class="fas fa-envelope policy-icon"></i> 8. Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@circle.com" style="color: var(--primary-blue); font-weight: 600;">support@circle.com</a></p>
+
+            <a href="index.html" class="return-btn">
+                <i class="fas fa-arrow-left"></i> Return to Homepage
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Circle.Com. All rights reserved.</p>
+            <a href="privacy_policy.html" class="nav-link" style="margin-right: 10px;">Privacy Policy</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>

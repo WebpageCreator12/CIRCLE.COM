@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Circle.Com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- CSS Variables & Global Styles (Consistent Theme) --- */
+        :root {
+            --primary-blue: #007BFF;
+            --accent-gold: #FFD700;
+            --background-dark: #121212;
+            --primary-dark: #1E1E1E;
+            --secondary-dark: #2a2a2a;
+            --text-primary: #E4E6EB;
+            --text-secondary: #b0b3b8;
+            --border-color-dark: #3A3B3C;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            --google-red: #DB4437; /* Google's brand color */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-container {
+            width: 90%;
+            max-width: 450px;
+            background-color: var(--primary-dark);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .auth-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            padding-left: 40px; /* Space for icon */
+            border-radius: 8px;
+            border: 1px solid var(--border-color-dark);
+            background-color: var(--secondary-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 42px;
+            color: var(--text-secondary);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background-color: #0069d9;
+            transform: translateY(-1px);
+        }
+
+        /* --- Google Sign-in Button Style --- */
+        .google-btn {
+            background-color: var(--google-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(219, 68, 55, 0.4);
+        }
+
+        .google-btn:hover {
+            background-color: #c33d31;
+            transform: translateY(-1px);
+        }
+        
+        /* --- Separator Style --- */
+        .separator {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--border-color-dark);
+        }
+
+        .separator::before {
+            left: 0;
+        }
+
+        .separator::after {
+            right: 0;
+        }
+
+        .separator span {
+            background-color: var(--primary-dark);
+            padding: 0 10px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .toggle-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .toggle-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            background-color: rgba(255, 77, 77, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        <a href="index.html" style="text-align: center; display: block; margin-bottom: 30px; text-decoration: none; color: var(--primary-blue); font-weight: 700; font-size: 1.2rem;">
+            &larr; Back to Circle.Com
+        </a>
+        
+        <h2 id="auth-title">Create Your Circle.Com Account</h2>
+
+        <!-- Google Sign-In Button (Used for quick registration/sign-up) -->
+        <button class="auth-btn google-btn" id="google-sign-in">
+            <i class="fab fa-google"></i> Sign Up with Google
+        </button>
+        
+        <!-- Separator -->
+        <div class="separator"><span>OR</span></div>
+
+        <!-- Email/Password Form -->
+        <div id="error-box" class="error-message"></div>
+
+        <form id="auth-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="input-field" placeholder="you@example.com" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="input-field" placeholder="Create a strong password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            
+            <button type="submit" class="auth-btn primary-btn" id="auth-button">Sign Up</button>
+        </form>
+
+        <a class="toggle-link" href="sign-in.html" id="toggle-auth">Already have an account? Sign In</a>
+    </div>
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD4-ahRzIkV2ETgPyvy8ArfUNX5DaqVoSI",
+            authDomain: "circle-sign-in-and-sign-up.firebaseapp.com",
+            projectId: "circle-sign-in-and-sign-up",
+            storageBucket: "circle-sign-in-and-sign-up.firebasestorage.app",
+            messagingSenderId: "388606706573",
+            appId: "1:388606706573:web:cd6c96b889667fe205f3c4",
+            measurementId: "G-6YDBZGE18V"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+        const authButton = document.getElementById('auth-button');
+        authButton.addEventListener("click", function(event){
+
+            //inputs
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            event.preventDefault()
+            createUserWithEmailAndPassword(authButton, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                alert("Creating Account.....")
+                window.location.href = "index.html"
+
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+                // ..
+            })
+        });
+    </script>
+</body>
+</html>

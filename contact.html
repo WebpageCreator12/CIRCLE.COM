@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Circle.Com: Secure Support</title>
+    <!-- Consistent global font and icon library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inline CSS using the established variables for a consistent look -->
+    <style>
+        /* --- CSS Variables & Global Styles (Copied from style.css for one-file integrity) --- */
+        :root {
+            --primary-blue: #007BFF;
+            --accent-gold: #FFD700;
+            --background-dark: #121212;
+            --primary-dark: #1E1E1E;
+            --secondary-dark: #2a2a2a;
+            --text-primary: #E4E6EB;
+            --text-secondary: #b0b3b8;
+            --border-color-dark: #3A3B3C;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --hover-effect: 0.3s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background-color: var(--background-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        .site-header {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .cta-link {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* --- Page Specific Styles --- */
+        .contact-hero {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(18, 18, 18, 0.8), rgba(30, 30, 30, 0.9));
+            border-bottom: 1px solid var(--border-color-dark);
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .contact-hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 50px;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+        
+        /* Contact Information Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .info-card {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--border-color-dark);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .info-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .info-card a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+        
+        /* Contact Form Styling */
+        .contact-form-section {
+            padding: 60px 0;
+            background-color: var(--secondary-dark);
+            border-top: 1px solid var(--border-color-dark);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--primary-dark);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
+            text-align: left;
+            border: 1px solid var(--primary-blue);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color-dark);
+            border-radius: 6px;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            appearance: none; /* Removes default select styling */
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        /* Message box for form status (instead of alert) */
+        #contact-status {
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer (Consistent) */
+        .site-footer {
+            background: var(--primary-dark);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color-dark);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+                padding: 1rem 20px;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: var(--primary-dark);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                display: flex;
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation (Consistent across pages) -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">Circle.Com</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="premium.html" class="nav-link cta-link active">Premium</a></li>
+                    <li><a href="sign-in.html" class="nav-link cta-link active">Sign In</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>We're Here to Help</h1>
+                <p>Whether you have a technical question, a partnership proposal, or feedback, our secure channels are open 24/7. Choose the best way to connect below.</p>
+            </div>
+        </section>
+
+        <!-- Contact Information Grid -->
+        <section id="contact-info" class="py-16">
+            <div class="container">
+                <h2 class="section-title">Reach Our Specialized Teams</h2>
+                <div class="info-grid">
+
+                    <!-- Card 1: Technical Support -->
+                    <div class="info-card">
+                        <i class="fas fa-headset"></i>
+                        <h3>Technical Support</h3>
+                        <p>For urgent issues, bugs, or account recovery.</p>
+                        <p><strong>Email:</strong> <a href="mailto:support@circle.com">support@circle.com</a></p>
+                        <p><strong>Phone:</strong> +91 8959222209</p>
+                    </div>
+
+                    <!-- Card 2: Sales & Partnerships -->
+                    <div class="info-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Sales & Partnerships</h3>
+                        <p>For business inquiries, enterprise solutions, or media requests.</p>
+                        <p><strong>Email:</strong> <a href="mailto:sales@circle.com">sales@circle.com</a></p>
+                        <p><strong>Phone:</strong> +91 8959222209</p>
+                    </div>
+
+                    <!-- Card 3: Corporate & Legal -->
+                    <div class="info-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Corporate Inquiries</h3>
+                        <p>Our global headquarters address and compliance team contact.</p>
+                        <p><strong>Legal:</strong> <a href="mailto:legal@circle.com">legal@circle.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Detailed Inquiry Form -->
+        <section id="contact-form-section" class="contact-form-section">
+            <div class="container">
+                <h2 class="section-title">Send a Secure Inquiry</h2>
+                <form class="contact-form" onsubmit="event.preventDefault(); handleFormSubmission(event);">
+                    <div class="form-group">
+                        <label for="topic">Inquiry Topic</label>
+                        <select id="topic" required>
+                            <option value="">-- Select a Topic --</option>
+                            <option value="General Feedback">General Feedback</option>
+                            <option value="Bug Report">Technical Issue / Bug Report</option>
+                            <option value="Premium Inquiry">Premium / Billing Inquiry</option>
+                            <option value="Security Research">Security Research & Vulnerability</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Secure Inquiry</button>
+                    <div id="contact-status"></div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- CTA Section for Support Hub -->
+        <section class="py-16" style="text-align: center;">
+            <div class="container">
+                <h2 style="color: var(--text-primary); font-size: 2rem;">Quick Answers in Our Support Hub</h2>
+                <p style="color: var(--text-secondary); margin-top: 10px; margin-bottom: 30px;">Find solutions instantly in our comprehensive knowledge base and FAQs.</p>
+                <a href="index.html" class="cta-link" style="padding: 12px 30px; font-size: 1.1rem; border-radius: 50px;">
+                    <i class="fas fa-search mr-2"></i> Visit Help Center (Mock Link)
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Circle.Com. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy_policy.html" class="hover:text-white transition duration-300">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Inline JS for Hamburger Menu and Form Handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-links');
+
+            // Toggle mobile navigation on hamburger click
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active'); 
+            });
+            
+            // Set 'Contact' link as active
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes('contact.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form Submission Handler
+        function handleFormSubmission(event) {
+            const form = event.target;
+            const statusDiv = document.getElementById('contact-status');
+            
+            statusDiv.style.display = 'block';
+            statusDiv.textContent = 'Encrypting and sending your secure inquiry...';
+            statusDiv.style.backgroundColor = 'rgba(0, 123, 255, 0.1)';
+            statusDiv.style.color = 'var(--primary-blue)';
+
+            // Simulate network delay and success
+            setTimeout(() => {
+                const topic = document.getElementById('topic').value;
+                statusDiv.textContent = `Success! Your inquiry about "${topic}" has been securely received. We will respond to your email shortly.`;
+                statusDiv.style.backgroundColor = 'rgba(30, 255, 30, 0.1)';
+                statusDiv.style.color = '#3CFF3C'; /* Light green color */
+                
+                // Clear the form fields
+                form.reset();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

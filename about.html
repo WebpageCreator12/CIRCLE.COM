@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Circle.Com: Security, Community, Innovation</title>
+    <!-- Consistent global font and icon library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inline CSS using the established variables for a consistent look -->
+    <style>
+        /* --- CSS Variables & Global Styles --- */
+        :root {
+            --primary-blue: #007BFF;
+            --accent-gold: #FFD700;
+            --background-dark: #121212;
+            --primary-dark: #1E1E1E;
+            --secondary-dark: #2a2a2a;
+            --text-primary: #E4E6EB;
+            --text-secondary: #b0b3b8;
+            --border-color-dark: #3A3B3C;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --hover-effect: 0.3s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background-color: var(--background-dark);
+            /* Optional subtle background animation from style.css */
+            background: linear-gradient(135deg, #1e1e1e, #141414, #1e1e1e);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        .site-header {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .cta-link {
+            background-color: var(--primary-blue);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+        
+        /* --- Page Specific Styles --- */
+        .about-hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(18, 18, 18, 0.8), rgba(30, 30, 30, 0.9));
+            border-bottom: 1px solid var(--border-color-dark);
+        }
+
+        .about-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .about-hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+
+        /* Mission & Story Section */
+        .story-section {
+            padding: 80px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 15px;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .story-image-mock {
+            background-color: var(--primary-dark);
+            border: 3px solid var(--primary-blue);
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+        }
+        
+        .story-image-mock i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: left;
+            border: 1px solid var(--border-color-dark);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 30px rgba(0, 123, 255, 0.15);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        
+        .value-card p {
+            color: var(--text-secondary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-blue);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e6c200;
+            transform: scale(1.05);
+        }
+
+
+        /* Footer (Consistent) */
+        .site-footer {
+            background: var(--primary-dark);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color-dark);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+                padding: 1rem 20px;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: var(--primary-dark);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                display: flex;
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-text {
+                order: 2; /* Put text below the image on mobile */
+            }
+            
+            .story-image-mock {
+                order: 1;
+                height: 300px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation (Consistent across pages) -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">Circle.Com</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="premium.html" class="nav-link cta-link active">Premium</a></li>
+                    <li><a href="sign-in.html" class="nav-link cta-link active">Sign In</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1>The Future of Connection, Built on Trust.</h1>
+                <p>Circle.Com was founded on a simple belief: that connecting with the world shouldn't mean sacrificing your privacy or security. We are dedicated to pioneering communication technology that puts you in control.</p>
+            </div>
+        </section>
+
+        <!-- Mission & Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2>Our Story & Mission</h2>
+                        <p>In a world of intrusive data practices, Circle.Com was born from the need for a truly **private digital space**. Our founders, veteran security architects, recognized that convenience and security were often treated as separate goals. We set out to prove they could be one and the same.</p>
+                        <p>Our mission is to **empower individuals and businesses** with seamless, encrypted communication and collaboration tools. We aim to be the most trusted platform for your digital life, ensuring every message, file, and interaction remains yours alone.</p>
+                        <a href="premium.html" class="cta-link" style="margin-top: 10px;">View Our Technology</a>
+                    </div>
+                    <div class="story-image-mock">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core Principles</h2>
+                    <p>These values guide every line of code we write and every decision we make.</p>
+                </div>
+                <div class="values-grid">
+                    
+                    <!-- Value Card 1: Security -->
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Zero-Trust Security</h3>
+                        <p>We implement end-to-end encryption by default. We can't read your data, meaning neither can anyone else. Your privacy is not a feature; it's our foundational architecture.</p>
+                    </div>
+
+                    <!-- Value Card 2: Innovation -->
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Relentless Innovation</h3>
+                        <p>The digital landscape evolves daily, and so do we. We are constantly researching and deploying cutting-edge technology to stay ahead of threats and deliver the best user experience.</p>
+                    </div>
+
+                    <!-- Value Card 3: Community -->
+                    <div class="value-card">
+                        <i class="fas fa-users"></i>
+                        <h3>User-First Community</h3>
+                        <p>We listen to our users. Our platform is built by the community, for the community. Transparency and ethical data practices are central to how we interact with you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to experience secure communication?</h2>
+                <p>Join thousands of users who have made the switch to Circle.Com.</p>
+                <a href="premium.html" class="cta-btn">Get Started Today</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Circle.Com. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy_policy.html" class="nav-link" style="margin-right: 10px;">Privacy Policy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Inline JS for Hamburger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-links');
+
+            // Toggle mobile navigation on hamburger click
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Set 'About' link as active
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes('about.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
